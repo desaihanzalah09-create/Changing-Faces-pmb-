@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Book Appointment | Changing Faces</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="images/Logo.jpeg">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/Logo.jpeg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/Logo.jpeg">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html" class="logo-brand">
+        <img src="images/Logo.jpeg" alt="Changing Faces logo" class="site-logo">
+        <span class="brand-name">Changing <span class="teal-text">Faces</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/27677862277?text=Hi%20Changing%20Faces%2C%20I%20would%20like%20to%20make%20an%20inquiry." class="btn-gold">Book Appointment</a>
+    </div>
+  </header>
+
+  <main class="container" style="max-width: 700px;">
+    <h1 class="section-title">Reserve Your <span class="teal-text">Experience</span></h1>
+    <p class="section-desc">Fill in the form below to secure your session at Changing Faces.</p>
+
+    <form class="card" id="booking-form">
+      <div class="form-group">
+        <label style="display:block; margin-bottom:8px; color:var(--text-muted);">Full Name</label>
+        <input type="text" class="form-control" id="booking-name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label style="display:block; margin-bottom:8px; color:var(--text-muted);">Phone / WhatsApp Number</label>
+        <input type="tel" class="form-control" id="booking-phone" placeholder="+27 00 000 0000" required>
+      </div>
+
+      <div class="form-group">
+        <label style="display:block; margin-bottom:8px; color:var(--text-muted);">Select Service</label>
+        <select class="form-control" id="booking-service">
+          <option>Hair Styling & Cut</option>
+          <option>Hair Coloring / Balayage</option>
+          <option>Nail Care / Pedicure Lounge</option>
+          <option>Facials & Skincare</option>
+          <option>Spa & Massage Therapy</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label style="display:block; margin-bottom:8px; color:var(--text-muted);">Preferred Date & Time</label>
+        <input type="datetime-local" class="form-control" id="booking-date" required>
+      </div>
+
+      <button type="submit" class="btn-gold" style="width: 100%; margin-top: 10px;">Send Booking Inquiry on WhatsApp</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p class="footer-address">80 Royston Rd, Mountain Rise, Pietermaritzburg, 3201, South Africa</p>
+      <p>&copy; 2026 Changing Faces Lounge. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('booking-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('booking-name').value.trim();
+      const phone = document.getElementById('booking-phone').value.trim();
+      const service = document.getElementById('booking-service').value;
+      const date = document.getElementById('booking-date').value;
+      const whatsappMessage = `Hi Changing Faces, I would like to make a booking inquiry.\nName: ${name}\nPhone: ${phone}\nService: ${service}\nPreferred date and time: ${date}`;
+
+      window.location.href = `https://wa.me/27677862277?text=${encodeURIComponent(whatsappMessage)}`;
+    });
+  </script>
+
+</body>
+</html>
